@@ -5,6 +5,8 @@ const message = document.querySelector('.message');
 let currentScore = 20;
 const score = document.querySelector('.score');
 const checkBtn = document.querySelector('.check');
+const bodyElemetn = document.querySelector('body');
+const number = document.querySelector('.number');
 
 checkBtn.onclick = () => {
   const userGuess = Number(document.querySelector('.guess').value);
@@ -17,6 +19,8 @@ checkBtn.onclick = () => {
     currentScore--;
     score.textContent = currentScore;
   } else {
-    message.textContent = 'Right number! you Win...🥳';
+    message.textContent = 'Correct Number! 🥳';
+    bodyElemetn.style.backgroundColor = 'green';
+    number.textContent = secretNumber;
   }
 };

@@ -1,8 +1,8 @@
 'use strict';
 
+let currentScore = 20;
 const secretNumber = Math.floor(Math.random() * 20 + 1);
 const message = document.querySelector('.message');
-let currentScore = 20;
 const score = document.querySelector('.score');
 const checkBtn = document.querySelector('.check');
 const bodyElemetn = document.querySelector('body');

@@ -13,7 +13,7 @@ const checkBtn = document
   .addEventListener('click', () => {
     // check if the user already guessed the number
     if (alreadyGuessed) {
-      message.textContent = 'You alerdy gussed the number :)';
+      message.textContent = 'You alerdy gussed the number 😋';
     }
     // check if the user has left chances
     else if (currentScore < 1) {
@@ -40,6 +40,7 @@ const checkBtn = document
           message.textContent = 'Correct Number! 🥳';
           bodyElemetn.style.backgroundColor = 'green';
           number.textContent = secretNumber;
+          number.style.width = '30rem';
           alreadyGuessed = true;
         }
       }
@@ -49,6 +50,7 @@ const checkBtn = document
 // when the user wants to try again
 const again = document.querySelector('.again').addEventListener('click', () => {
   secretNumber = Math.floor(Math.random() * 20 + 1);
+  alreadyGuessed = false;
   document.querySelector('.guess').value = '';
   message.textContent = 'Start guessing...';
   currentScore = 20;

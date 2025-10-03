@@ -5,31 +5,31 @@ let secretNumber = Math.floor(Math.random() * 20 + 1);
 let alreadyGuessed = false;
 let Highscore = 0;
 
-const message = document.querySelector('.message');
-const score = document.querySelector('.score');
-const bodyElemetn = document.querySelector('body');
-const number = document.querySelector('.number');
-const highScoreElement = document.querySelector('.highscore');
+const message = get('.message');
+const score = get('.score');
+const bodyElemetn = get('body');
+const number = get('.number');
+const highScoreElement = get('.highscore');
 
-const checkBtn = document.querySelector('.check');
+const checkBtn = get('.check');
 
 checkBtn.addEventListener('click', () => {
   runApp();
 });
 
-document.querySelector('.guess').addEventListener('keypress', event => {
+get('.guess').addEventListener('keypress', event => {
   if (event.key === 'Enter') {
     runApp();
   }
 });
 
 // when the user wants to try again
-const again = document.querySelector('.again').addEventListener('click', () => {
+const again = get('.again').addEventListener('click', () => {
   secretNumber = Math.floor(Math.random() * 20 + 1);
   alreadyGuessed = false;
   currentScore = 20;
 
-  document.querySelector('.guess').value = '';
+  get('.guess').value = '';
   message.textContent = 'Start guessing...';
   number.style.width = '15rem';
   bodyElemetn.style.backgroundColor = '#222';
@@ -46,7 +46,7 @@ function runApp() {
   else if (currentScore < 1) {
     message.textContent = 'You lost, Game over';
   } else {
-    const userGuess = Number(document.querySelector('.guess').value);
+    const userGuess = Number(get('.guess').value);
     // when there is no number
     if (!userGuess) {
       message.textContent = 'No Number ⛔';
@@ -77,4 +77,8 @@ function runApp() {
       }
     }
   }
+}
+
+function get(target) {
+  return document.querySelector(target);
 }

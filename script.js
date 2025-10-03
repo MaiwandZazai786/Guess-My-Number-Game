@@ -17,6 +17,12 @@ checkBtn.addEventListener('click', () => {
   runApp();
 });
 
+document.querySelector('.guess').addEventListener('keypress', event => {
+  if (event.key === 'Enter') {
+    runApp();
+  }
+});
+
 // when the user wants to try again
 const again = document.querySelector('.again').addEventListener('click', () => {
   secretNumber = Math.floor(Math.random() * 20 + 1);

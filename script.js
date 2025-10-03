@@ -30,7 +30,7 @@ const again = get('.again').addEventListener('click', () => {
   currentScore = 20;
 
   get('.guess').value = '';
-  message.textContent = 'Start guessing...';
+  setMessage('Start guessing...');
   number.style.width = '15rem';
   bodyElemetn.style.backgroundColor = '#222';
   number.textContent = '?';
@@ -40,25 +40,25 @@ const again = get('.again').addEventListener('click', () => {
 function runApp() {
   // check if the user already guessed the number
   if (alreadyGuessed) {
-    message.textContent = 'You alerdy gussed the number 😋';
+    setMessage('You alerdy gussed the number 😋');
   }
   // check if the user has left chances
   else if (currentScore < 1) {
-    message.textContent = 'You lost, Game over';
+    setMessage('You lost, Game over');
   } else {
     const userGuess = Number(get('.guess').value);
     // when there is no number
     if (!userGuess) {
-      message.textContent = 'No Number ⛔';
+      setMessage('No Number ⛔');
     } else {
       // when the userGuess is too high
       if (userGuess > secretNumber) {
-        message.textContent = 'Too High 💹';
+        setMessage('Too High 💹');
         currentScore--;
         score.textContent = currentScore;
         // when the userGuess is to low
       } else if (userGuess < secretNumber) {
-        message.textContent = 'Too Low 💹';
+        setMessage('Too Low 💹');
         currentScore--;
         score.textContent = currentScore;
       }
@@ -69,7 +69,7 @@ function runApp() {
           : (Highscore = Highscore);
 
         highScoreElement.textContent = Highscore;
-        message.textContent = 'Correct Number! 🥳';
+        setMessage('Correct Number! 🥳');
         bodyElemetn.style.backgroundColor = 'green';
         number.textContent = secretNumber;
         number.style.width = '30rem';
@@ -81,4 +81,8 @@ function runApp() {
 
 function get(target) {
   return document.querySelector(target);
+}
+
+function setMessage(masg) {
+  message.textContent = masg;
 }

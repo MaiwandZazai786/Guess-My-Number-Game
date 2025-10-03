@@ -3,11 +3,13 @@
 let currentScore = 20;
 let secretNumber = Math.floor(Math.random() * 20 + 1);
 let alreadyGuessed = false;
+let Highscore = 0;
 
 const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const bodyElemetn = document.querySelector('body');
 const number = document.querySelector('.number');
+const highScoreElement = document.querySelector('.highscore');
 
 const checkBtn = document.querySelector('.check');
 
@@ -56,6 +58,11 @@ function runApp() {
       }
       // when the user wins
       else {
+        currentScore > Highscore
+          ? (Highscore = currentScore)
+          : (Highscore = Highscore);
+
+        highScoreElement.textContent = Highscore;
         message.textContent = 'Correct Number! 🥳';
         bodyElemetn.style.backgroundColor = 'green';
         number.textContent = secretNumber;

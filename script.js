@@ -58,28 +58,3 @@ const again = document.querySelector('.again').addEventListener('click', () => {
   number.textContent = '?';
   score.textContent = currentScore;
 });
-
-// checkBtn.onclick = () => {
-//   const userGuess = Number(document.querySelector('.guess').value);
-//   if (userGuess > secretNumber) {
-//     message.textContent = 'Too High';
-//     currentScore--;
-//     score.textContent = currentScore;
-//   } else if (userGuess < secretNumber) {
-//     message.textContent = 'Too Low';
-//     currentScore--;
-//     score.textContent = currentScore;
-//   } else {
-//     message.textContent = 'Correct Number! 🥳';
-//     bodyElemetn.style.backgroundColor = 'green';
-//     number.textContent = secretNumber;
-//   }
-// };
-
-// again.onclick = () => {
-//   message.textContent = 'Start guessing...';
-//   currentScore = 20;
-//   bodyElemetn.style.backgroundColor = '#222';
-//   number.textContent = '';
-//   score.textContent = currentScore;
-// };

@@ -24,7 +24,7 @@ get('.guess').addEventListener('keypress', event => {
 });
 
 // when the user wants to try again
-const again = get('.again').addEventListener('click', () => {
+get('.again').addEventListener('click', () => {
   secretNumber = Math.floor(Math.random() * 20 + 1);
   alreadyGuessed = false;
   currentScore = 20;

@@ -11,18 +11,22 @@ const checkBtn = document
   .querySelector('.check')
   .addEventListener('click', () => {
     const userGuess = Number(document.querySelector('.guess').value);
-    if (userGuess > secretNumber) {
-      message.textContent = 'Too High';
-      currentScore--;
-      score.textContent = currentScore;
-    } else if (userGuess < secretNumber) {
-      message.textContent = 'Too Low';
-      currentScore--;
-      score.textContent = currentScore;
+    if (!userGuess) {
+      message.textContent = 'No Number ⛔';
     } else {
-      message.textContent = 'Correct Number! 🥳';
-      bodyElemetn.style.backgroundColor = 'green';
-      number.textContent = secretNumber;
+      if (userGuess > secretNumber) {
+        message.textContent = 'Too High 💹';
+        currentScore--;
+        score.textContent = currentScore;
+      } else if (userGuess < secretNumber) {
+        message.textContent = 'Too Low 💹';
+        currentScore--;
+        score.textContent = currentScore;
+      } else {
+        message.textContent = 'Correct Number! 🥳';
+        bodyElemetn.style.backgroundColor = 'green';
+        number.textContent = secretNumber;
+      }
     }
   });
 
@@ -32,7 +36,7 @@ const again = document.querySelector('.again').addEventListener('click', () => {
   message.textContent = 'Start guessing...';
   currentScore = 20;
   bodyElemetn.style.backgroundColor = '#222';
-  number.textContent = '';
+  number.textContent = '?';
   score.textContent = currentScore;
 });
 

@@ -50,31 +50,27 @@ function runApp() {
     // when there is no number
     if (!userGuess) {
       setMessage('No Number ⛔');
-    } else {
-      // when the userGuess is too high
-      if (userGuess > secretNumber) {
-        setMessage('Too High 💹');
-        currentScore--;
-        score.textContent = currentScore;
-        // when the userGuess is to low
-      } else if (userGuess < secretNumber) {
-        setMessage('Too Low 💹');
-        currentScore--;
-        score.textContent = currentScore;
-      }
-      // when the user wins
-      else {
-        currentScore > Highscore
-          ? (Highscore = currentScore)
-          : (Highscore = Highscore);
+    }
+    // when the userGuess is deferent
+    if (userGuess !== secretNumber) {
+      userGuess > secretNumber
+        ? setMessage('Too High 💹')
+        : setMessage('Too Low 💹');
+      currentScore--;
+      score.textContent = currentScore;
+    }
+    // when the user wins
+    else {
+      currentScore > Highscore
+        ? (Highscore = currentScore)
+        : (Highscore = Highscore);
 
-        highScoreElement.textContent = Highscore;
-        setMessage('Correct Number! 🥳');
-        bodyElemetn.style.backgroundColor = 'green';
-        number.textContent = secretNumber;
-        number.style.width = '30rem';
-        alreadyGuessed = true;
-      }
+      highScoreElement.textContent = Highscore;
+      setMessage('Correct Number! 🥳');
+      bodyElemetn.style.backgroundColor = 'green';
+      number.textContent = secretNumber;
+      number.style.width = '30rem';
+      alreadyGuessed = true;
     }
   }
 }

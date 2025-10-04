@@ -52,7 +52,7 @@ function runApp() {
       setMessage('No Number ⛔');
     }
     // when the userGuess is deferent
-    if (userGuess !== secretNumber) {
+    else if (userGuess !== secretNumber) {
       userGuess > secretNumber
         ? setMessage('Too High 💹')
         : setMessage('Too Low 💹');

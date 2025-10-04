@@ -1,7 +1,7 @@
 'use strict';
 
 let currentScore = 20;
-let secretNumber = Math.floor(Math.random() * 20 + 1);
+let secretNumber = genSecretNumber();
 let alreadyGuessed = false;
 let Highscore = 0;
 
@@ -25,7 +25,7 @@ get('.guess').addEventListener('keypress', event => {
 
 // when the user wants to try again
 get('.again').addEventListener('click', () => {
-  secretNumber = Math.floor(Math.random() * 20 + 1);
+  secretNumber = genSecretNumber();
   alreadyGuessed = false;
   currentScore = 20;
 
@@ -81,4 +81,7 @@ function get(target) {
 
 function setMessage(masg) {
   message.textContent = masg;
+}
+function genSecretNumber() {
+  return Math.floor(Math.random() * 20 + 1);
 }
